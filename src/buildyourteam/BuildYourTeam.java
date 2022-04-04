@@ -6,14 +6,13 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import static java.nio.file.Files.list;
-import static java.rmi.Naming.list;
-import static java.util.Collections.list;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Vector;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 
 /**
  * version 1.2.
@@ -76,6 +75,8 @@ public class BuildYourTeam extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Build Your Team");
@@ -112,12 +113,12 @@ public class BuildYourTeam extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jList2);
 
         jList3.setBackground(new java.awt.Color(255, 255, 102));
-        jList3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jList3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jList3.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane3.setViewportView(jList3);
 
         jList4.setBackground(new java.awt.Color(255, 255, 102));
-        jList4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jList4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jList4.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane4.setViewportView(jList4);
 
@@ -144,12 +145,12 @@ public class BuildYourTeam extends javax.swing.JFrame {
         });
 
         jList5.setBackground(new java.awt.Color(153, 255, 0));
-        jList5.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jList5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jList5.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane5.setViewportView(jList5);
 
         jList6.setBackground(new java.awt.Color(153, 255, 0));
-        jList6.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jList6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jList6.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane6.setViewportView(jList6);
 
@@ -206,12 +207,12 @@ public class BuildYourTeam extends javax.swing.JFrame {
         jLabel8.setPreferredSize(new java.awt.Dimension(67, 24));
 
         jList9.setBackground(new java.awt.Color(0, 255, 204));
-        jList9.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jList9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jList9.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane9.setViewportView(jList9);
 
         jList10.setBackground(new java.awt.Color(0, 255, 204));
-        jList10.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jList10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jList10.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane10.setViewportView(jList10);
 
@@ -224,12 +225,12 @@ public class BuildYourTeam extends javax.swing.JFrame {
         jLabel9.setPreferredSize(new java.awt.Dimension(32, 24));
 
         jList11.setBackground(new java.awt.Color(255, 153, 0));
-        jList11.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jList11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jList11.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane11.setViewportView(jList11);
 
         jList12.setBackground(new java.awt.Color(255, 153, 0));
-        jList12.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jList12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jList12.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane12.setViewportView(jList12);
 
@@ -251,6 +252,10 @@ public class BuildYourTeam extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Bell MT", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 153, 204));
         jLabel11.setText("Kadrodaki Oyuncu Sayısı: 0");
+
+        jLabel12.setFont(new java.awt.Font("Bell MT", 1, 12)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Tactics");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -281,7 +286,9 @@ public class BuildYourTeam extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -324,10 +331,6 @@ public class BuildYourTeam extends javax.swing.JFrame {
                             .addComponent(jScrollPane7)
                             .addComponent(jScrollPane1)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(75, 75, 75)
@@ -347,6 +350,14 @@ public class BuildYourTeam extends javax.swing.JFrame {
                                 .addGap(3, 3, 3)))
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane11)
@@ -381,6 +392,21 @@ public class BuildYourTeam extends javax.swing.JFrame {
         jList6.setEnabled(false);
         jList10.setEnabled(false);
         jList12.setEnabled(false);
+        
+        Tactics taktisyen = new Tactics();
+        String[] ono = taktisyen.tactics();
+        String[] ono2 = new String[ono.length];
+        for (int i = 0 ; i < ono.length ; i++) {
+            //jComboBox1.addItem(ono[i]);
+            if (ono[i] == null) {
+                //System.out.println("Boş değil");
+                break;
+            }
+            ono2[i] = ono[i];
+            //System.out.println(ono2[i]);
+            jComboBox1.addItem(ono2[i]);
+        }
+        
         
         TotalPlayers totalPlayers = new TotalPlayers();
         
@@ -544,7 +570,7 @@ public class BuildYourTeam extends javax.swing.JFrame {
         jLabel10.setText(setjLabel10Text);
         
         
-        System.out.println(sayim);
+        //System.out.println(sayim);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -636,9 +662,11 @@ public class BuildYourTeam extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
