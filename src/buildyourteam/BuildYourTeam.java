@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+package buildyourteam;
 
 import java.awt.Color;
-import java.awt.Image;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -19,15 +13,16 @@ import java.util.Locale;
 import java.util.Vector;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 /**
- *
+ * version 1.2.
  * @author Ono
  */
 public class BuildYourTeam extends javax.swing.JFrame {
 
     /**
-     * Creates new form KadroDegistir
+     * Creates new form Build
      */
     public BuildYourTeam() {
         Locale dil = new Locale("tr" , "TR");
@@ -389,7 +384,7 @@ public class BuildYourTeam extends javax.swing.JFrame {
         
         TotalPlayers totalPlayers = new TotalPlayers();
         
-        String yol = "C:\\Users\\onurk\\Desktop\\onur\\fenerbahce.txt";
+        String yol = "C:\\Users\\onurk\\Documents\\NetBeansProjects\\BuildYourTeam\\files\\fenerbahce.txt";
         String satir = "";
         int elemanlar = totalPlayers.totalPlayers(yol);        
         jLabel11.setText("Players in the team: " + elemanlar);
@@ -558,16 +553,26 @@ public class BuildYourTeam extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        Object ono = null ;
-        formWindowOpened((WindowEvent) ono);
-            
-        jList3.setListData(reset);
-        jList5.setListData(reset);
-        jList9.setListData(reset);
-        jList11.setListData(reset);
-        jLabel10.setForeground(Color.red);
-        jLabel10.setText("<html>There isn't" + "<br/>a player" + "<br/>in the team</html>");
-        jLabel5.setText("");
+        ImageIcon icon = new ImageIcon("src/images/pluger.png");
+        int confirm = JOptionPane.showConfirmDialog(null, "All data will be lost!", "Select an Option..", JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE, icon);
+        
+        if (confirm == 0) {
+            Object ono = null ;
+            formWindowOpened((WindowEvent) ono);
+
+            jList3.setListData(reset);
+            jList5.setListData(reset);
+            jList9.setListData(reset);
+            jList11.setListData(reset);
+            jLabel10.setForeground(Color.red);
+            jLabel10.setText("<html>The first team " + "<br/>is wiped out</html>");
+            jLabel5.setText("");
+        }
+        else {
+            jLabel10.setText("<html>No change has " + "<br/>been made</html>");
+        }
+        
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
