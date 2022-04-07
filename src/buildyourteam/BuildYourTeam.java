@@ -127,6 +127,7 @@ public class BuildYourTeam extends javax.swing.JFrame {
         jButton1.setText("<html><center>Add / Remove" + "<br/>to/from the" + "<br/>First Team</center></html>");
         jButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 153, 255)));
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -253,6 +254,12 @@ public class BuildYourTeam extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(0, 153, 204));
         jLabel11.setText("Kadrodaki Oyuncu Sayısı: 0");
 
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
         jLabel12.setFont(new java.awt.Font("Bell MT", 1, 12)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Tactics");
@@ -331,7 +338,6 @@ public class BuildYourTeam extends javax.swing.JFrame {
                             .addComponent(jScrollPane7)
                             .addComponent(jScrollPane1)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(75, 75, 75)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -601,6 +607,21 @@ public class BuildYourTeam extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        
+        String control = "-----";
+        String answer = (String) jComboBox1.getSelectedItem();
+        System.out.println(answer);
+        
+        if (!control.contains(answer)) {
+            jButton1.setEnabled(true);
+        }
+        else
+            jButton1.setEnabled(false);
+        
+                
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
