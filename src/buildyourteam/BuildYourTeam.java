@@ -3,16 +3,17 @@ package buildyourteam;
 import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Vector;
+import java.util.jar.JarFile;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
 
 /**
  * version 1.2.
@@ -413,11 +414,9 @@ public class BuildYourTeam extends javax.swing.JFrame {
             jComboBox1.addItem(ono2[i]);
         }
         
-        
-        TotalPlayers totalPlayers = new TotalPlayers();
-        
-        String yol = "C:\\Users\\onurk\\Documents\\NetBeansProjects\\BuildYourTeam\\files\\fenerbahce.txt";
+        String yol = "src\\kadrolar\\fenerbahce.txt";
         String satir = "";
+        TotalPlayers totalPlayers = new TotalPlayers();
         int elemanlar = totalPlayers.totalPlayers(yol);        
         jLabel11.setText("Players in the team: " + elemanlar);
         // System.out.println(elemanlar);

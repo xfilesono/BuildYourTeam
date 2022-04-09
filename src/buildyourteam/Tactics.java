@@ -25,7 +25,7 @@ public class Tactics {
         
         try {
             
-            String yol = "C:\\Users\\onurk\\Documents\\NetBeansProjects\\BuildYourTeam\\files\\tactics.txt";
+            String yol = "src\\kadrolar\\tactics.txt";
             FileInputStream stream = new FileInputStream(yol);
             InputStreamReader reader = new InputStreamReader(stream);
             BufferedReader buffer = new BufferedReader(reader);
@@ -46,7 +46,7 @@ public class Tactics {
             
         }
         catch(Exception e) {
-            System.out.println("Error (counter file doesn't exist): " + e.getMessage());
+            System.out.println("Error (tactics file doesn't exist): " + e.getMessage());
         }
         
         return tactics;
