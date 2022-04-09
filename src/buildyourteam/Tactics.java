@@ -7,8 +7,6 @@ package buildyourteam;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  *
@@ -25,7 +23,7 @@ public class Tactics {
         
         try {
             
-            String yol = "src\\kadrolar\\tactics.txt";
+            String yol = "kadrolar\\tactics.txt";
             FileInputStream stream = new FileInputStream(yol);
             InputStreamReader reader = new InputStreamReader(stream);
             BufferedReader buffer = new BufferedReader(reader);

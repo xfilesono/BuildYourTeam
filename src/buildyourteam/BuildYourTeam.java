@@ -3,23 +3,21 @@ package buildyourteam;
 import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Locale;
 import java.util.Vector;
-import java.util.jar.JarFile;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  * version 1.2.
  * @author Ono
  */
-public class BuildYourTeam extends javax.swing.JFrame {
+public class BuildYourTeam extends JFrame {
 
     /**
      * Creates new form Build
@@ -414,10 +412,10 @@ public class BuildYourTeam extends javax.swing.JFrame {
             jComboBox1.addItem(ono2[i]);
         }
         
-        String yol = "src\\kadrolar\\fenerbahce.txt";
+        String yol = "kadrolar\\fenerbahce.txt";
         String satir = "";
         TotalPlayers totalPlayers = new TotalPlayers();
-        int elemanlar = totalPlayers.totalPlayers(yol);        
+        int elemanlar = totalPlayers.totalPlayers(yol);  
         jLabel11.setText("Players in the team: " + elemanlar);
         // System.out.println(elemanlar);
         numaralar = new Vector<>(elemanlar);
@@ -611,7 +609,7 @@ public class BuildYourTeam extends javax.swing.JFrame {
         
         String control = "-----";
         String answer = (String) jComboBox1.getSelectedItem();
-        System.out.println(answer);
+        //System.out.println(answer);
         
         if (!control.contains(answer)) {
             jButton1.setEnabled(true);
